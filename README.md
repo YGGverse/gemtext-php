@@ -1,2 +1,11 @@
 # gemtext-php
-PHP 8 library for text/gemini
+
+PHP 8 library for `text/gemini`
+
+This library is lightweight replacement to [gemini-php](https://github.com/YGGverse/gemini-php)
+
+## Install
+
+``` bash
+composer require yggverse/gemtext
+```

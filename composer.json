@@ -1,0 +1,19 @@
+{
+    "name": "yggverse/gemtext",
+    "description": "PHP 8 library for text/gemini",
+    "keywords": [ "yggverse", "gemini", "gemtext", "text/gemini", "parser" ],
+    "homepage": "https://github.com/yggverse/gemtext",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yggverse\\Gemtext\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "YGGverse"
+        }
+    ],
+    "require": {}
+}

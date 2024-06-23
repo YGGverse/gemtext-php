@@ -41,7 +41,7 @@ class Line
         $this->_data = $data;
     }
 
-    public function getEscaped(): bool
+    public function isEscaped(): bool
     {
         return $this->_escaped;
     }

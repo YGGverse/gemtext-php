@@ -11,8 +11,11 @@ class Line
     private bool $_escaped;
     private ?int $_number;
 
-    public function __construct(string $data = '', bool $escaped = false, ?int $number = null)
-    {
+    public function __construct(
+        string $data = '',
+        bool $escaped = false,
+        ?int $number = null
+    ) {
         $this->setData(
             $data
         );
@@ -31,7 +34,9 @@ class Line
         return $this->_data;
     }
 
-    public function setData(string $data): void
+    public function setData(
+        string $data
+    ): void
     {
         $this->_data = $data;
     }
@@ -41,7 +46,9 @@ class Line
         return $this->_escaped;
     }
 
-    public function setEscaped(bool $escaped): void
+    public function setEscaped(
+        bool $escaped
+    ): void
     {
         $this->_escaped = $escaped;
     }
@@ -51,7 +58,9 @@ class Line
         return $this->_number;
     }
 
-    public function setNumber(?int $number): void
+    public function setNumber(
+        ?int $number
+    ): void
     {
         $this->_number = $number;
     }

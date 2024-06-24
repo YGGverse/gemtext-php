@@ -8,7 +8,7 @@ use \Yggverse\Gemtext;
 
 class Document
 {
-    private array $_entities = [];
+    private array $_entity = [];
 
     public function __construct(
         string $data
@@ -21,7 +21,7 @@ class Document
                 // Code
                 case Parser\Code::match($line):
 
-                    $this->_entities[] = new Entity\Code(
+                    $this->_entity[] = new Entity\Code(
                         Parser\Code::getAlt(
                             $line
                         ),
@@ -35,7 +35,7 @@ class Document
                 // Header
                 case Parser\Header::match($line):
 
-                    $this->_entities[] = new Entity\Header(
+                    $this->_entity[] = new Entity\Header(
                         Parser\Header::getLevel(
                             $line
                         ),
@@ -49,7 +49,7 @@ class Document
                 // Link
                 case Parser\Link::match($line):
 
-                    $this->_entities[] = new Entity\Link(
+                    $this->_entity[] = new Entity\Link(
                         Parser\Link::getAddress(
                             $line
                         ),
@@ -66,7 +66,7 @@ class Document
                 // Listing
                 case Parser\Listing::match($line):
 
-                    $this->_entities[] = new Entity\Listing(
+                    $this->_entity[] = new Entity\Listing(
                         Parser\Listing::getItem(
                             $line
                         )
@@ -77,7 +77,7 @@ class Document
                 // Quote
                 case Parser\Quote::match($line):
 
-                    $this->_entities[] = new Entity\Quote(
+                    $this->_entity[] = new Entity\Quote(
                         Parser\Quote::getText(
                             $line
                         )
@@ -88,7 +88,7 @@ class Document
                 // Plain
                 default:
 
-                    $this->_entities[] = new Entity\Text(
+                    $this->_entity[] = new Entity\Text(
                         $line
                     );
             }
@@ -97,16 +97,16 @@ class Document
 
     public function toString(): string
     {
-        $entities = [];
+        $parts = [];
 
-        foreach ($this->_entities as $entity)
+        foreach ($this->_entity as $entity)
         {
-            $entities[] = $entity->toString();
+            $parts[] = $entity->toString();
         }
 
         return implode(
             PHP_EOL,
-            $entities
+            $parts
         );
     }
 }

@@ -13,8 +13,8 @@ class Header
     private ?string $_text;
 
     public function __construct(
-        int $level,
-        ?string $text = null
+        ?string $text = null,
+        int $level = 1
     ) {
         $this->setLevel(
             $level

@@ -36,10 +36,10 @@ class Document
                 case Parser\Header::match($line):
 
                     $this->_entity[] = new Entity\Header(
-                        Parser\Header::getLevel(
+                        Parser\Header::getText(
                             $line
                         ),
-                        Parser\Header::getText(
+                        Parser\Header::getLevel(
                             $line
                         )
                     );

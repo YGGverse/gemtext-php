@@ -31,7 +31,7 @@ foreach ($document->getLinks() as $link)
 }
 ```
 
-### Make new document
+### Create new document
 
 ``` php
 // Init new document

@@ -32,6 +32,20 @@ class Document
 
                 break;
 
+                // Header
+                case Parser\Header::match($line):
+
+                    $this->_entities[] = new Entity\Header(
+                        Parser\Header::getLevel(
+                            $line
+                        ),
+                        Parser\Header::getText(
+                            $line
+                        )
+                    );
+
+                break;
+
                 // Link
                 case Parser\Link::match($line):
 

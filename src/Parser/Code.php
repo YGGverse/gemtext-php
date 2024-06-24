@@ -17,7 +17,7 @@ class Code
         {
             // Inline ^```preformatted```
             case preg_match(
-                '/^(?<tag>[`]{3})(?<inline>[^`]+)(?<close>[`]{3})$/m',
+                '/^(?<tag>[`]{3})(?<alt>[^`]+)(?<close>[`]{3})$/m',
                 $line,
                 $matches
             ):
@@ -68,7 +68,7 @@ class Code
 
         if (self::match($line, $matches))
         {
-            return isset($matches['inline']);
+            return isset($matches['close']);
         }
 
         return false;

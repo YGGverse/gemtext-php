@@ -95,6 +95,66 @@ class Document
         }
     }
 
+    public function getHeaders(): array
+    {
+        $headers = [];
+
+        foreach ($this->_entity as $entity)
+        {
+            if ($entity instanceof Entity\Header)
+            {
+                $headers[] = $entity;
+            }
+        }
+
+        return $headers;
+    }
+
+    public function getLinks(): array
+    {
+        $links = [];
+
+        foreach ($this->_entity as $entity)
+        {
+            if ($entity instanceof Entity\Link)
+            {
+                $links[] = $entity;
+            }
+        }
+
+        return $links;
+    }
+
+    public function getListings(): array
+    {
+        $listings = [];
+
+        foreach ($this->_entity as $entity)
+        {
+            if ($entity instanceof Entity\Listing)
+            {
+                $listings[] = $entity;
+            }
+        }
+
+        return $listings;
+    }
+
+    public function getQuotes(): array
+    {
+        $quotes = [];
+
+        foreach ($this->_entity as $entity)
+        {
+            if ($entity instanceof Entity\Quote)
+            {
+                $quotes[] = $entity;
+            }
+        }
+
+        return $quotes;
+    }
+
     public function toString(): string
     {
         $lines = [];

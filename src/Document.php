@@ -11,7 +11,7 @@ class Document
     private array $_entity = [];
 
     public function __construct(
-        string $data
+        string $data = ''
     ) {
         foreach ((array) explode(PHP_EOL, $data) as $line)
         {

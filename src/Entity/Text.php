@@ -9,20 +9,23 @@ class Text
     private string $_data;
 
     public function __construct(
-         string $data
+         string $data,
+         bool $trim = false
     ) {
         $this->setData(
-            $data
+            $data,
+            $trim
         );
     }
 
     public function setData(
-        string $data
+        string $data,
+        bool $trim = false
     ): void
     {
-        $this->_data = trim(
+        $this->_data = $trim ? trim(
             $data
-        );
+        ) : $data;
     }
 
     public function getData(): string

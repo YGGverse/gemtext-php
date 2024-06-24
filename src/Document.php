@@ -15,71 +15,83 @@ class Document
     ) {
         foreach ((array) explode(PHP_EOL, $data) as $line)
         {
+            // Init match
+            $matches = [];
+
             // Add entity
             switch (true)
             {
                 // Code
-                case Parser\Code::match($line):
+                case Parser\Code::match($line, $matches):
 
                     $this->_entity[] = new Entity\Code(
                         Parser\Code::getAlt(
-                            $line
+                            $line,
+                            $matches
                         ),
                         Parser\Code::isInline(
-                            $line
+                            $line,
+                            $matches
                         )
                     );
 
                 break;
 
                 // Header
-                case Parser\Header::match($line):
+                case Parser\Header::match($line, $matches):
 
                     $this->_entity[] = new Entity\Header(
                         Parser\Header::getText(
-                            $line
+                            $line,
+                            $matches
                         ),
                         Parser\Header::getLevel(
-                            $line
+                            $line,
+                            $matches
                         )
                     );
 
                 break;
 
                 // Link
-                case Parser\Link::match($line):
+                case Parser\Link::match($line, $matches):
 
                     $this->_entity[] = new Entity\Link(
                         Parser\Link::getAddress(
-                            $line
+                            $line,
+                            $matches
                         ),
                         Parser\Link::getAlt(
-                            $line
+                            $line,
+                            $matches
                         ),
                         Parser\Link::getDate(
-                            $line
+                            $line,
+                            $matches
                         )
                     );
 
                 break;
 
                 // Listing
-                case Parser\Listing::match($line):
+                case Parser\Listing::match($line, $matches):
 
                     $this->_entity[] = new Entity\Listing(
                         Parser\Listing::getItem(
-                            $line
+                            $line,
+                            $matches
                         )
                     );
 
                 break;
 
                 // Quote
-                case Parser\Quote::match($line):
+                case Parser\Quote::match($line, $matches):
 
                     $this->_entity[] = new Entity\Quote(
                         Parser\Quote::getText(
-                            $line
+                            $line,
+                            $matches
                         )
                     );
 
@@ -93,6 +105,11 @@ class Document
                     );
             }
         }
+    }
+
+    public function getEntities(): array
+    {
+        return $this->_entity;
     }
 
     public function getHeaders(): array
@@ -153,6 +170,13 @@ class Document
         }
 
         return $quotes;
+    }
+
+    public function append(
+        \Yggverse\Gemtext\Interface\Entity $entity
+    ): void
+    {
+        $this->_entity[] = $entity;
     }
 
     public function toString(): string

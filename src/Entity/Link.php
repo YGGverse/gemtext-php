@@ -83,7 +83,7 @@ class Link
                 $date
             );
 
-            if (!preg_match('/^\d{4}-\d{2}-\d{2}$/'))
+            if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date))
             {
                 throw new \Exception(
                     _('Date does not match format YYYY-MM-DD')

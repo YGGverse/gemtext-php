@@ -10,7 +10,7 @@ This library is lightweight, object-oriented [Gemtext](https://geminiprotocol.ne
 composer require yggverse/gemtext:dev-main
 ```
 
-## Examples
+## Example
 
 ### Parse existing document
 
@@ -56,12 +56,12 @@ $link->setDate(
     date('Y-m-d')
 );
 
-// Append link to document
+// Append link
 $document->append(
     $link
 );
 
-// Get gemtext result
+// Get gemtext
 print(
     $document->toString()
 );

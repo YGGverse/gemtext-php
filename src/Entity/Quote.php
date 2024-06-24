@@ -32,7 +32,7 @@ class Quote
         $this->_text = $text;
     }
 
-    public function Text(): ?string
+    public function getText(): ?string
     {
         return $this->_text;
     }

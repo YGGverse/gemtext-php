@@ -97,16 +97,16 @@ class Document
 
     public function toString(): string
     {
-        $parts = [];
+        $lines = [];
 
         foreach ($this->_entity as $entity)
         {
-            $parts[] = $entity->toString();
+            $lines[] = $entity->toString();
         }
 
         return implode(
             PHP_EOL,
-            $parts
+            $lines
         );
     }
 }

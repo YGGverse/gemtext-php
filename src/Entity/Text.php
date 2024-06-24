@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Yggverse\Gemtext\Entity;
 
-class Text
+class Text implements \Yggverse\Gemtext\Interface\Entity
 {
     private string $_data;
 
     public function __construct(
-         string $data,
+         string $data = '',
          bool $trim = false
     ) {
         $this->setData(

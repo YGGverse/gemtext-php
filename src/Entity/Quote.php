@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yggverse\Gemtext\Entity;
 
-class Quote
+class Quote implements \Yggverse\Gemtext\Interface\Entity
 {
     public const TAG = '>';
 

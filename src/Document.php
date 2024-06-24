@@ -49,6 +49,17 @@ class Document
 
                 break;
 
+                // Listing
+                case Parser\Listing::match($line):
+
+                    $this->_entities[] = new Entity\Listing(
+                        Parser\Listing::getItem(
+                            $line
+                        )
+                    );
+
+                break;
+
                 // Plain
                 default:
 

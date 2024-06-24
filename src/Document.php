@@ -60,6 +60,17 @@ class Document
 
                 break;
 
+                // Quote
+                case Parser\Quote::match($line):
+
+                    $this->_entities[] = new Entity\Quote(
+                        Parser\Quote::getText(
+                            $line
+                        )
+                    );
+
+                break;
+
                 // Plain
                 default:
 

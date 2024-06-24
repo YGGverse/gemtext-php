@@ -64,6 +64,6 @@ class Code
                                : self::TAG;
         }
 
-        return self::TAG;
+        return self::TAG . $this->_alt;
     }
 }

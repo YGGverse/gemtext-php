@@ -12,7 +12,7 @@ class Link
     ): bool
     {
         return (bool) preg_match(
-            '/^=>\s*(?<address>[^\s]+)(\s(?<date>\d{4}-\d{2}-\d{2}))?(\s(?<alt>.+))?$/m',
+            '/^=>(?<address>[^\s]+)(\s(?<date>\d{4}-\d{2}-\d{2}))?(\s(?<alt>.+))?$/m',
             $line,
             $matches
         );

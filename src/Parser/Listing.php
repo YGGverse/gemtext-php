@@ -12,7 +12,7 @@ class Listing
     ): bool
     {
         return (bool) preg_match(
-            '/^\*\s*(?<item>.*)$/m',
+            '/^\*(?<item>.*)$/m',
             $line,
             $matches
         );

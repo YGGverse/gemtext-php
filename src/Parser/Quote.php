@@ -12,7 +12,7 @@ class Quote
     ): bool
     {
         return (bool) preg_match(
-            '/^>\s*(?<text>.*)$/m',
+            '/^>(?<text>.*)$/m',
             $line,
             $matches
         );

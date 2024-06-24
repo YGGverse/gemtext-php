@@ -58,12 +58,6 @@ class Code
 
     public function toString(): string
     {
-        if ($this->_inline)
-        {
-            return $this->_alt ? self::TAG . $this->_alt . self::TAG
-                               : self::TAG;
-        }
-
-        return self::TAG . $this->_alt;
+        return self::TAG . $this->_alt . ($this->_inline ? self::TAG : null);
     }
 }

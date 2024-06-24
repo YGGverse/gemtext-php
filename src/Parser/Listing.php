@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yggverse\Gemtext\Parser;
 
-class Listing
+class Listing implements \Yggverse\Gemtext\Interface\Parser
 {
     public static function match(
         string $line,
@@ -19,23 +19,27 @@ class Listing
     }
 
     public static function getItem(
-        string $line
+        string $line,
+        array $matches = []
     ): ?string
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['item']))
-            {
-                $item = trim(
-                    $matches['item']
-                );
+            self::match(
+                $line,
+                $matches
+            );
+        }
 
-                if ($item)
-                {
-                    return $item;
-                }
+        if (isset($matches['item']))
+        {
+            $item = trim(
+                $matches['item']
+            );
+
+            if ($item)
+            {
+                return $item;
             }
         }
 

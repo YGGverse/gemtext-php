@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yggverse\Gemtext\Parser;
 
-class Code
+class Code implements \Yggverse\Gemtext\Interface\Parser
 {
     public static function match(
         string $line,
@@ -37,23 +37,27 @@ class Code
     }
 
     public static function getAlt(
-        string $line
+        string $line,
+        array $matches = []
     ): ?string
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['alt']))
-            {
-                $alt = trim(
-                    $matches['alt']
-                );
+            self::match(
+                $line,
+                $matches
+            );
+        }
 
-                if ($alt)
-                {
-                    return $alt;
-                }
+        if (isset($matches['alt']))
+        {
+            $alt = trim(
+                $matches['alt']
+            );
+
+            if ($alt)
+            {
+                return $alt;
             }
         }
 
@@ -61,16 +65,20 @@ class Code
     }
 
     public static function isInline(
-        string $line
+        string $line,
+        array $matches = []
     ): bool
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            return isset($matches['close']);
+            self::match(
+                $line,
+                $matches
+            );
         }
 
-        return false;
+        return isset(
+            $matches['close']
+        );
     }
 }

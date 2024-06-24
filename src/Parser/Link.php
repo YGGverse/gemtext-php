@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yggverse\Gemtext\Parser;
 
-class Link
+class Link implements \Yggverse\Gemtext\Interface\Parser
 {
     public static function match(
         string $line,
@@ -19,23 +19,27 @@ class Link
     }
 
     public static function getAddress(
-        string $line
+        string $line,
+        array $matches = []
     ): ?string
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['address']))
-            {
-                $address = trim(
-                    $matches['address']
-                );
+            self::match(
+                $line,
+                $matches
+            );
+        }
 
-                if ($address)
-                {
-                    return $address;
-                }
+        if (isset($matches['address']))
+        {
+            $address = trim(
+                $matches['address']
+            );
+
+            if ($address)
+            {
+                return $address;
             }
         }
 
@@ -43,23 +47,27 @@ class Link
     }
 
     public static function getDate(
-        string $line
+        string $line,
+        array $matches = []
     ): ?string
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['date']))
-            {
-                $date = trim(
-                    $matches['date']
-                );
+            self::match(
+                $line,
+                $matches
+            );
+        }
 
-                if ($date)
-                {
-                    return $date;
-                }
+        if (isset($matches['date']))
+        {
+            $date = trim(
+                $matches['date']
+            );
+
+            if ($date)
+            {
+                return $date;
             }
         }
 
@@ -67,23 +75,27 @@ class Link
     }
 
     public static function getAlt(
-        string $line
+        string $line,
+        array $matches = []
     ): ?string
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['alt']))
-            {
-                $alt = trim(
-                    $matches['alt']
-                );
+            self::match(
+                $line,
+                $matches
+            );
+        }
 
-                if ($alt)
-                {
-                    return $alt;
-                }
+        if (isset($matches['alt']))
+        {
+            $alt = trim(
+                $matches['alt']
+            );
+
+            if ($alt)
+            {
+                return $alt;
             }
         }
 

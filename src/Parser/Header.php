@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yggverse\Gemtext\Parser;
 
-class Header
+class Header implements \Yggverse\Gemtext\Interface\Parser
 {
     public static function match(
         string $line,
@@ -19,42 +19,50 @@ class Header
     }
 
     public static function getLevel(
-        string $line
+        string $line,
+        array $matches = []
     ): ?int
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['level']))
-            {
-                return (int) strlen(
-                    $matches['level']
-                );
-            }
+            self::match(
+                $line,
+                $matches
+            );
+        }
+
+        if (isset($matches['level']))
+        {
+            return (int) strlen(
+                $matches['level']
+            );
         }
 
         return null;
     }
 
     public static function getText(
-        string $line
+        string $line,
+        array $matches = []
     ): ?string
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['text']))
-            {
-                $text = trim(
-                    $matches['text']
-                );
+            self::match(
+                $line,
+                $matches
+            );
+        }
 
-                if ($text)
-                {
-                    return $text;
-                }
+        if (isset($matches['text']))
+        {
+            $text = trim(
+                $matches['text']
+            );
+
+            if ($text)
+            {
+                return $text;
             }
         }
 

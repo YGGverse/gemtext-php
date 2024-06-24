@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yggverse\Gemtext\Parser;
 
-class Quote
+class Quote implements \Yggverse\Gemtext\Interface\Parser
 {
     public static function match(
         string $line,
@@ -19,23 +19,27 @@ class Quote
     }
 
     public static function getText(
-        string $line
+        string $line,
+        array $matches = []
     ): ?string
     {
-        $matches = [];
-
-        if (self::match($line, $matches))
+        if (!$matches)
         {
-            if (isset($matches['text']))
-            {
-                $text = trim(
-                    $matches['text']
-                );
+            self::match(
+                $line,
+                $matches
+            );
+        }
 
-                if ($text)
-                {
-                    return $text;
-                }
+        if (isset($matches['text']))
+        {
+            $text = trim(
+                $matches['text']
+            );
+
+            if ($text)
+            {
+                return $text;
             }
         }
 

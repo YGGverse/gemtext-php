@@ -6,6 +6,8 @@ namespace Yggverse\Gemtext\Entity;
 
 class Link
 {
+    public const TAG = '=>';
+
     private string $_address;
 
     private ?string $_alt;
@@ -100,7 +102,7 @@ class Link
     public function toString(): string
     {
         $parts = [
-            '=>',
+            self::TAG,
             $this->getAddress()
         ];
 

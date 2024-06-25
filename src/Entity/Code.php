@@ -58,6 +58,17 @@ class Code implements \Yggverse\Gemtext\Interface\Entity
 
     public function toString(): string
     {
-        return self::TAG . $this->_alt . ($this->_inline ? self::TAG : null);
+        return $this->_inline ? sprintf(
+                                '%s%s%s',
+                                self::TAG,
+                                $this->_alt,
+                                self::TAG
+                            ) : trim(
+                                sprintf(
+                                    '%s %s',
+                                    self::TAG,
+                                    $this->_alt
+                                )
+                            );
     }
 }

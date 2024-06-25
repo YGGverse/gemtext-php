@@ -65,9 +65,15 @@ class Header implements \Yggverse\Gemtext\Interface\Entity
 
     public function toString(): string
     {
-        return str_repeat(
-            self::TAG,
-            $this->_level
-        ) . $this->_text;
+        return trim(
+            sprintf(
+                '%s %s',
+                str_repeat(
+                    self::TAG,
+                    $this->_level
+                ),
+                $this->_text
+            )
+        );
     }
 }

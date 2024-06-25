@@ -39,6 +39,12 @@ class Listing implements \Yggverse\Gemtext\Interface\Entity
 
     public function toString(): string
     {
-        return self::TAG . ' ' . $this->_item;
+        return trim(
+            sprintf(
+                '%s %s',
+                self::TAG,
+                $this->_item
+            )
+        );
     }
 }

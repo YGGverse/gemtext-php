@@ -116,9 +116,11 @@ class Link implements \Yggverse\Gemtext\Interface\Entity
             $parts[] = $alt;
         }
 
-        return implode(
-            ' ',
-            $parts
+        return trim(
+            implode(
+                ' ',
+                $parts
+            )
         );
     }
 }

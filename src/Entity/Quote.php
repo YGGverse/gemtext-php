@@ -39,6 +39,12 @@ class Quote implements \Yggverse\Gemtext\Interface\Entity
 
     public function toString(): string
     {
-        return self::TAG . ' ' . $this->_text;
+        return trim(
+            sprintf(
+                '%s %s',
+                self::TAG,
+                $this->_text
+            )
+        );
     }
 }

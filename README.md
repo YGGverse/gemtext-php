@@ -7,7 +7,7 @@ This library is lightweight, object-oriented [Gemtext](https://geminiprotocol.ne
 ## Install
 
 ``` bash
-composer require yggverse/gemtext:dev-main
+composer require yggverse/gemtext
 ```
 
 ## Example

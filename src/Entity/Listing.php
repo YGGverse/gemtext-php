@@ -32,7 +32,7 @@ class Listing implements \Yggverse\Gemtext\Interface\Entity
         $this->_item = $item;
     }
 
-    public function Item(): ?string
+    public function getItem(): ?string
     {
         return $this->_item;
     }

@@ -26,7 +26,7 @@ class Code implements \Yggverse\Gemtext\Interface\Parser
 
             // Multiline with optional alt support
             case preg_match(
-                '/^(?<tag>[`]{3})(?<alt>[^`]+)$/m',
+                '/^(?<tag>[`]{3})(?<alt>[^`]*)$/m',
                 $line,
                 $matches
             ):

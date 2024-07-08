@@ -1,8 +1,15 @@
 # gemtext-php
 
-PHP 8 library for `text/gemini`
+Lightweight, object-oriented PHP 8 library for [Gemtext](https://geminiprotocol.net/docs/gemtext.gmi)
 
-This library is lightweight, object-oriented [Gemtext](https://geminiprotocol.net/docs/gemtext.gmi) replacement to [gemini-php](https://github.com/YGGverse/gemini-php)
+## See also
+
+* [gemini-php](https://github.com/YGGverse/gemini-php) - PHP 8 Client library for Gemini connections
+
+## Integrations
+
+* [gemini-dl](https://github.com/YGGverse/gemini-dl) - CLI batch downloader for Gemini protocol
+* [Yoda](https://github.com/YGGverse/Yoda) - PHP-GTK Browser for Gemini protocol
 
 ## Install
 

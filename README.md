@@ -1,6 +1,6 @@
 # gemtext-php
 
-Lightweight, object-oriented PHP 8 library for [Gemtext](https://geminiprotocol.net/docs/gemtext.gmi) operations
+Lightweight, object-oriented PHP 8 library for [Gemtext](https://geminiprotocol.net/docs/gemtext.gmi) markup
 
 ## See also
 

@@ -1,10 +1,10 @@
 # gemtext-php
 
-Lightweight, object-oriented PHP 8 library for [Gemtext](https://geminiprotocol.net/docs/gemtext.gmi)
+Lightweight, object-oriented PHP 8 library for [Gemini](https://geminiprotocol.net) / [Gemtext](https://geminiprotocol.net/docs/gemtext.gmi) operations
 
 ## See also
 
-* [gemini-php](https://github.com/YGGverse/gemini-php) - PHP 8 Client library for Gemini connections
+* [gemini-php](https://github.com/YGGverse/gemini-php) - PHP 8 Client library for Gemini protocol connections
 
 ## Integrations
 
